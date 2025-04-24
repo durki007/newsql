@@ -1,0 +1,12 @@
+dependencies:
+- name: cockroachdb
+  repository: https://charts.cockroachdb.com/
+  version: 11.0.4
+- name: kube-prometheus-stack
+  repository: https://prometheus-community.github.io/helm-charts
+  version: 58.1.2
+- name: pgadmin4
+  repository: https://helm.runix.net
+  version: 1.17.2
+digest: sha256:f02d59b7badb5b89304b39eb972183f3e536063c778ca3b9ea32a4fdb8b9d986
+generated: "2025-04-24T15:41:18.91857315+02:00"
