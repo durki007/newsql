@@ -8,7 +8,7 @@ cockroachdb:
     persistentVolume:
       enabled: false
   tls:
-    enabled: true
+    enabled: false
 
 kube-prometheus-stack:
   grafana:
