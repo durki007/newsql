@@ -20,7 +20,7 @@ kind: Pod
 metadata:
   name: cockroachdb-client-secure
 spec:
-  serviceAccountName: cockroachdb # Change to {release}
+  serviceAccountName: {{ .Release.Name }}-cockroachdb # Change to {release}
   containers:
   - name: cockroachdb-client-secure
     image: cockroachdb/cockroach:v21.1.11 # Change to cockroachdb/cockroach:{version}
@@ -37,7 +37,7 @@ spec:
     projected:
         sources:
           - secret:
-              name: cockroachdb-client-secret # Change to {release}-client-secret
+              name: {{ .Release.Name }}-cockroachdb-client-secret # Change to {release}-client-secret
               items:
                 - key: ca.crt
                   path: ca.crt
