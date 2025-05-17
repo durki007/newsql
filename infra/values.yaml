@@ -1,44 +1,16 @@
-ingress:
-  enabled: false
+namespace: infra
 
 cockroachdb:
   statefulset:
     replicas: 3
+
   storage:
     persistentVolume:
-      enabled: false
-  tls:
-    enabled: false
-
-kube-prometheus-stack:
-  grafana:
-    enabled: true
-    adminPassword: "admin"
-    persistence:
       enabled: true
-      size: 2Gi
-      accessModes:
-        - ReadWriteOnce
-      type: pvc
-    service:
-      type: NodePort
-  prometheus:
-    service:
-      type: NodePort
-  alertmanager:
-    enabled: false
+      size: 10Gi
 
-pgadmin4:
-  env:
-    email: admin@localhost.com
-    password: admin
   service:
-    type: NodePort
-    port: 80
-  persistentVolume:
+    type: ClusterIP
+
+  tls:
     enabled: true
-    existingClaim: ""   # leave empty if creating a new one
-    storageClass: ""    # default class used by Minikube
-    accessModes:
-      - ReadWriteOnce
-    size: 10Gi
