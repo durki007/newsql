@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: databaseregistry/backend
+  repository: databaseregistry.azurecr.io/backend
   tag: latest
   pullPolicy: Always
 
@@ -10,7 +10,7 @@ service:
   port: 8080
 
 env:
-  dbHost: cockroachdb.infra.svc.cluster.local
+  dbHost: infra-cockroachdb.infra.svc.cluster.local
   dbPort: 26257
   dbUser: youruser
   dbPassword: yourpassword
