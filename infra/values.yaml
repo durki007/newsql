@@ -14,3 +14,9 @@ cockroachdb:
 
   tls:
     enabled: true
+    certs:
+      client:
+        authentication:
+          enabled: true
+          methods:
+            - password
