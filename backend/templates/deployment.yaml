@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:postgresql://{{ .Values.env.dbHost }}:{{ .Values.env.dbPort }}/{{ .Values.env.dbName }}"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "{{ .Values.env.dbUser }}"
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: "{{ .Values.env.dbPassword }}"
+      # OPTIONAL: Init container to wait for DB
+      initContainers:
+        - name: wait-for-db
+          image: busybox
+          command: ['sh', '-c', 'until nc -z {{ .Values.env.dbHost }} {{ .Values.env.dbPort }}; do echo waiting for db; sleep 2; done']
