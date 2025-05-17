@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: databaseregistry.azurecr.io/backend
-  tag: latest
+  tag: 0.0.2
   pullPolicy: Always
 
 service:
@@ -10,6 +10,7 @@ service:
   port: 8080
 
 env:
+  appName: nbadraft
   dbHost: infra-cockroachdb.infra.svc.cluster.local
   dbPort: 26257
   dbUser: youruser

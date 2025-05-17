@@ -8,7 +8,7 @@ import io.github.cdimascio.dotenv.Dotenv;
 public class BackendNbaDraftApplication {
 
 	public static void main(String[] args) {
-		Dotenv dotenv = Dotenv.load();
+//		Dotenv dotenv = Dotenv.load();
 		SpringApplication.run(BackendNbaDraftApplication.class, args);
 	}
 

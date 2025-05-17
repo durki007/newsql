@@ -1,4 +1,4 @@
-FROM eclipse-temurin:21-jdk-alpine as build
+FROM eclipse-temurin:21-jdk-alpine AS build
 WORKDIR /app
 
 # Copy maven files first for better layer caching
