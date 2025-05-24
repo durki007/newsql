@@ -14,3 +14,7 @@ cockroachdb:
 
   tls:
     enabled: true
+
+  conf:
+    prometheus:
+      enabled: true

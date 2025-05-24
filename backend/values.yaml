@@ -13,8 +13,8 @@ env:
   appName: nbadraft
   dbHost: infra-cockroachdb.infra.svc.cluster.local
   dbPort: 26257
-  dbUser: youruser
-  dbPassword: yourpassword
-  dbName: yourdb
+  dbUser: durki
+  dbPassword: durki
+  dbName: defaultdb
 
 resources: {}
