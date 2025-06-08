@@ -18,6 +18,10 @@ public class PlayerService {
         return playerRepository.findAll();
     }
 
+    public long countPlayers() {
+        return playerRepository.count();
+    }
+
     public Optional<Player> findPlayerById(Long id) {
         return playerRepository.findById(id);
     }

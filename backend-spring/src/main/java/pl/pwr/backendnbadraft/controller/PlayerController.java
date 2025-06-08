@@ -30,6 +30,12 @@ public class PlayerController {
         return ResponseEntity.ok(players);
     }
 
+    @GetMapping("/count")
+    public ResponseEntity<Long> getPlayersCount() {
+        long count = playerService.countPlayers();
+        return ResponseEntity.ok(count);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<PlayerDto> getPlayerById(@PathVariable Long id) {
         return playerService.findPlayerById(id)

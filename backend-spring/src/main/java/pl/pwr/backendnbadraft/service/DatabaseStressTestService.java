@@ -48,10 +48,11 @@ public class DatabaseStressTestService {
                     }
                     successfulTransactions.incrementAndGet();
                 } catch (Exception e) {
+                    e.printStackTrace();
                     failedTransactions.incrementAndGet();
                 }
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                 }
@@ -82,6 +83,7 @@ public class DatabaseStressTestService {
         return Player.builder()
                 .firstName("Player" + random.nextInt(1000))
                 .lastName("Test" + random.nextInt(1000))
+                .playerCategory("stress-test")
                 .jerseyNumber(random.nextInt(0, 100))
                 .position("Position" + random.nextInt(1, 5))
                 .heightCm(ThreadLocalRandom.current().nextInt(170, 220))
